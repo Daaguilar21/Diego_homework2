@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Get Capital of a Country</h2>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.ISO.label }} {{ form.ISO() }}
+        {{ form.submit() }}
+    </form>
+
+    <form method="GET">
+    <h2>Results</h2>
+    <table>
+        <tr>
+            <th>Country Name</th>
+            <th>Capital</th>
+            <th>Calling Code</th>
+        </tr>
+        
+            <tr>
+                <td>{{ countryName }}</td>
+                <td>{{ capital }}</td>
+                <td>{{ callingCode }}</td>
+                
+            </tr>
+        
+    </table>
+    </form>
+{% endblock %}

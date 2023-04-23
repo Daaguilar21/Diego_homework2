@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Countries added so far in your database:</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Currency Code</th>
+            <th>Country Code</th>
+        </tr>
+        {% for country in countries %}
+        <tr>
+            <td>{{ country.name }}</td>
+            <td>{{ country.currency_code }}</td>
+            <td>{{ country.code }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

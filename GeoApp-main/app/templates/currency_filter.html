@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Filter by Currency</h2>
+    <form method="POST" action="">
+        {{ form.csrf_token }}
+        {{ form.currency_code.label }} {{ form.currency_code }}
+        <input type="submit" value="Filter">
+    </form>
+    <br>
+    {% if countries %}
+        <h2>Results</h2>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Country Code</th>
+                <th>Currency Code</th>
+            </tr>
+            {% for country in countries %}
+                <tr>
+                    <td>{{ country.name }}</td>
+                    <td>{{ country.code }}</td>
+                    <td>{{ country.currency_code }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+{% endblock %}

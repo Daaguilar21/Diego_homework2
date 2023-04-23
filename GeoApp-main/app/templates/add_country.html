@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Add Country</h2>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.country_name.label }} {{ form.country_name() }}
+        {{ form.submit() }}
+    </form>
+    {% for country in countries %}
+    <h2>Results</h2>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Code</th>
+            <th>Currency</th>            
+        </tr>
+            <tr>
+                <td>{{ country.name }}</td>
+                <td>{{ country.code }}</td>
+                <td>{{ country.currencyCodes[0] }}</td>
+            </tr>
+    </table>
+    {% endfor %}
+
+{% endblock %}

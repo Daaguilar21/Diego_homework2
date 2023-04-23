@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Search City</h2>
+    <form method="POST" action="">
+        {{ form.csrf_token }}
+        {{ form.city_name.label }} {{ form.city_name }}
+        <input type="submit" value="Search">
+    </form>
+    <br>
+    {% if cities %}
+        <h2>Search Results</h2>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Region</th>
+                <th>Country</th>
+                <th>Country Code</th>
+            </tr>
+            {% for city in cities %}
+                <tr>
+                    <td>{{ city.name }}</td>
+                    <td>{{ city.region }}</td>
+                    <td>{{ city.country }}</td>
+                    <td>{{ city.country_code }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+{% endblock %}
